@@ -1,4 +1,4 @@
-FROM quay.io/wildfly/wildfly-runtime-centos7:17.0
+FROM quay.io/wildfly/wildfly-runtime-centos7:26.1.3
 COPY --from=wildfly-operator-quickstart-build:latest /s2i-output/server $JBOSS_HOME
 USER root
 RUN chown -R jboss:root $JBOSS_HOME && chmod -R ug+rwX $JBOSS_HOME
