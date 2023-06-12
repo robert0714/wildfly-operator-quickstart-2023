@@ -8,7 +8,6 @@
     <packaging>war</packaging>
     <name>WildFly Operator Quickstart</name>
     <description>A simple Java project that uses JAX-RS to illustrate the use of the WildFly Operator</description>
-
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
