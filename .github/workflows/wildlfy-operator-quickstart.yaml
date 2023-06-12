@@ -3,7 +3,7 @@ name: wildlfy-operator-quickstartwildlfy-operator-quickstart images ci
 on:
   push:
     paths:
-      - './**'
+      - '**'
     branches:
       - main
   pull_request:
