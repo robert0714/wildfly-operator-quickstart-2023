@@ -1,0 +1,31 @@
+apiVersion: wildfly.org/v1alpha1
+kind: WildFlyServer
+metadata:
+  name: wildlfy-operator-quickstart-bootable-jar
+spec:
+  applicationImage: "ghcr.io/robert0714/wildlfy-operator-quickstart:latest"
+  replicas: 1
+  bootableJar: true
+  resources:
+    requests: 
+      memory: 300Mi
+      cpu: 400m
+    limits: 
+      memory: 700Mi
+      cpu: 800m
+  env:        
+    - name: TZ
+      value: 'Asia/Taipei'        
+    - name: JAVA_OPTS
+      value: >- 
+                -javaagent:/deployments/elastic-apm-agent-1.38.0.jar 
+                -Delastic.apm.server_urls=http://apm.apm.svc.cluster.local:8200
+                -Delastic.apm.service_name=rshelloworld
+                -Delastic.apm.application_packages=org.jboss.as.quickstarts.rshelloworld.*
+                -Delastic.apm.trace_methods=org.jboss.as.quickstarts.rshelloworld.*
+                -Delastic.apm.trace_methods_duration_threshold=100ms
+                -Delastic.apm.stack_trace_limit=80
+                -Djboss.bind.address=0.0.0.0 
+                -Xms300m 
+                -Xmx600m 
+                -Dwildfly.statistics-enabled=true
