@@ -8,7 +8,6 @@ RUN  apt-get update \
   && wget -O elastic-apm-agent-1.33.0.jar https://repo1.maven.org/maven2/co/elastic/apm/elastic-apm-agent/1.33.0/elastic-apm-agent-1.33.0.jar -P /app0/ \
   && wget -O opentelemetry-javaagent.jar https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/download/v1.14.0/opentelemetry-javaagent.jar -P /app0/ 
 
-
 FROM registry.access.redhat.com/ubi8/openjdk-8:latest
 
 COPY ./target/ROOT-bootable.jar /deployments/ROOT-bootable.jar
